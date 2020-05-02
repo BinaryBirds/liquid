@@ -18,10 +18,10 @@ let package = Package(
     ],
     dependencies: [
         // 💧 A server-side Swift web framework.
-        .package(url: "https://github.com/vapor/vapor.git", from: "4.4.0"),
-        .package(url: "https://github.com/binarybirds/liquid.git", from: "0.0.1"),
-        .package(url: "https://github.com/binarybirds/liquid-local-driver.git", from: "0.0.1"),
-        .package(url: "https://github.com/binarybirds/liquid-aws-s3-driver.git", from: "0.0.1"),
+        .package(url: "https://github.com/vapor/vapor.git", from: "4.5.0"),
+        .package(url: "https://github.com/binarybirds/liquid.git", from: "1.0.0"),
+        .package(url: "https://github.com/binarybirds/liquid-local-driver.git", from: "1.0.0"),
+        .package(url: "https://github.com/binarybirds/liquid-aws-s3-driver.git", from: "1.0.0"),
     ],
     targets: [
         .target(name: "App", dependencies: [

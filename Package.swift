@@ -8,9 +8,10 @@ let package = Package(
     ],
     products: [
         .library(name: "Liquid", targets: ["Liquid"]),
+        .library(name: "LiquidDynamic", type: .dynamic, targets: ["Liquid"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/vapor/vapor.git", from: "4.4.0"),
+        .package(url: "https://github.com/vapor/vapor.git", from: "4.5.0"),
         .package(url: "https://github.com/binarybirds/liquid-kit.git", from: "1.0.0"),
     ],
     targets: [

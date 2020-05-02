@@ -1,13 +1,9 @@
 //
-//  File.swift
-//  
+//  Application+Liquid.swift
+//  Liquid
 //
 //  Created by Tibor Bodecs on 2020. 04. 28..
 //
-
-import Vapor
-import LiquidKit
-import NIO
 
 extension Application {
 

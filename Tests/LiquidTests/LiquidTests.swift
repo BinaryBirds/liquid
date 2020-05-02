@@ -8,6 +8,6 @@ final class LiquidTests: XCTestCase {
     ]
 
     func testExample() {
-        XCTAssertEqualTrue(true)
+        XCTAssertTrue(true)
     }
 }
