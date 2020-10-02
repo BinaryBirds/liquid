@@ -8,7 +8,7 @@ Abstract file storage component made for Vapor 4.
 Add Liquid as a dependency using SPM, you can choose between the local and the AWS S3 driver.
 
 ```swift
-// swift-tools-version:5.2
+// swift-tools-version:5.3
 import PackageDescription
 
 let package = Package(
@@ -18,9 +18,9 @@ let package = Package(
     ],
     dependencies: [
         // 💧 A server-side Swift web framework.
-        .package(url: "https://github.com/vapor/vapor.git", from: "4.5.0"),
-        .package(url: "https://github.com/binarybirds/liquid.git", from: "1.0.0"),
-        .package(url: "https://github.com/binarybirds/liquid-local-driver.git", from: "1.0.0"),
+        .package(url: "https://github.com/vapor/vapor.git", from: "4.30.0"),
+        .package(url: "https://github.com/binarybirds/liquid.git", from: "1.1.0"),
+        .package(url: "https://github.com/binarybirds/liquid-local-driver.git", from: "1.1.0"),
         .package(url: "https://github.com/binarybirds/liquid-aws-s3-driver.git", from: "1.0.0"),
     ],
     targets: [
