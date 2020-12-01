@@ -29,46 +29,32 @@ extension Application {
         let application: Application
 
         var storage: Storage {
-            if self.application.storage[Key.self] == nil {
-                self.initialize()
+            if application.storage[Key.self] == nil {
+                initialize()
             }
-            return self.application.storage[Key.self]!
+            return application.storage[Key.self]!
         }
 
         func initialize() {
-            self.application.storage[Key.self] = .init(fileio: self.application.fileio)
-            self.application.lifecycle.use(Lifecycle())
+            application.storage[Key.self] = .init(fileio: application.fileio)
+            application.lifecycle.use(Lifecycle())
         }
     }
 
-    public var liquid: Liquid {
-        .init(application: self)
-    }
+    public var liquid: Liquid { .init(application: self) }
 
 }
 
 public extension Request {
 
-    var fs: FileStorage {
-        self.fs(nil)
-    }
-
-    func fs(_ id: FileStorageID?) -> FileStorage {
-        self.application.fileStorages.fileStorage(id, logger: self.logger, on: self.eventLoop)!
-    }
+    var fs: FileStorage { fs(nil) }
+    func fs(_ id: FileStorageID?) -> FileStorage { application.fileStorages.fileStorage(id, logger: logger, on: eventLoop)! }
 }
 
 public extension Application {
 
-    var fs: FileStorage {
-        self.fs(nil)
-    }
+    var fileStorages: FileStorages { liquid.storage.fileStorages }
 
-    func fs(_ id: FileStorageID?) -> FileStorage {
-        self.fileStorages.fileStorage(id, logger: self.logger, on: self.eventLoopGroup.next())!
-    }
-
-    var fileStorages: FileStorages {
-        self.liquid.storage.fileStorages
-    }
+    var fs: FileStorage { fs(nil) }
+    func fs(_ id: FileStorageID?) -> FileStorage { fileStorages.fileStorage(id, logger: logger, on: eventLoopGroup.next())! }
 }
