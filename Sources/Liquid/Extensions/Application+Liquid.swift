@@ -8,6 +8,7 @@
 extension Application {
 
     public struct Liquid {
+
         final class Storage {
             let fileStorages: FileStorages
 
@@ -41,20 +42,8 @@ extension Application {
         }
     }
 
+    /// returns the liquid file storage driver object
     public var liquid: Liquid { .init(application: self) }
-
 }
 
-public extension Request {
 
-    var fs: FileStorage { fs(nil) }
-    func fs(_ id: FileStorageID?) -> FileStorage { application.fileStorages.fileStorage(id, logger: logger, on: eventLoop)! }
-}
-
-public extension Application {
-
-    var fileStorages: FileStorages { liquid.storage.fileStorages }
-
-    var fs: FileStorage { fs(nil) }
-    func fs(_ id: FileStorageID?) -> FileStorage { fileStorages.fileStorage(id, logger: logger, on: eventLoopGroup.next())! }
-}
