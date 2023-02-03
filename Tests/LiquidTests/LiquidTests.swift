@@ -1,3 +1,10 @@
+//
+//  LiquidTests.swift
+//  LiquidTests
+//
+//  Created by Tibor Bodecs on 2023. 01. 17..
+//
+
 import XCTest
 import Vapor
 import Liquid
@@ -7,13 +14,17 @@ final class LiquidTests: XCTestCase {
     func testExample() async throws {
         let app = Application(.testing)
         
-        app.fileStorages.use(
+        app.objectStorages.use(
             .init {
-                MockFileStorageDriverConfiguration()
+                MockObjectStorageConfiguration()
             },
             as: .init(string: "mock")
         )
-        
-        _ = try await app.fileStorage.upload(key: "foo", data: .init())
+
+        try await app.objectStorage.upload(
+            key: "",
+            buffer: .init(),
+            checksum: nil
+        )
     }
 }

@@ -92,7 +92,6 @@ public func configure(_ app: Application) throws {
         ), 
         as: .s3
     )
-
 }
 ```
 

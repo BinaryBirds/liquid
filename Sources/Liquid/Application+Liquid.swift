@@ -10,10 +10,10 @@ import LiquidKit
 
 extension Application {
 
-    public struct Liquid {
+    struct Liquid {
 
         struct Key: StorageKey {
-            typealias Value = FileStorageDriverFactoryStorage
+            typealias Value = ObjectStorages
         }
         
         struct Lifecycle: LifecycleHandler {
@@ -23,7 +23,7 @@ extension Application {
             }
         }
 
-        var storage: FileStorageDriverFactoryStorage {
+        var storages: ObjectStorages {
             if application.storage[Key.self] == nil {
                 application.storage[Key.self] = .init(
                     eventLoopGroup: application.eventLoopGroup,
@@ -41,5 +41,3 @@ extension Application {
     /// returns the liquid file storage driver object
     var liquid: Liquid { .init(application: self) }
 }
-
-
